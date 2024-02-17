@@ -14,8 +14,9 @@ app.use(function (req, res, next) {
   next();
 });
 //testing
-app.post("/test", (req, res) => {
-  res.send({ result: "POst working" });
+app.post("/test", async (req, res) => {
+  let result = await User.find();
+  res.send({ result: "POst working", result });
 });
 //register API
 app.post("/register", async (req, res) => {
